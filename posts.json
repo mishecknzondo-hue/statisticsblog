@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Introduction to Statistical Modeling",
+    "content": "Learn the basics of regression, hypothesis testing, and data visualization for real-world analysis.",
+    "date": "2026-01-05"
+  },
+  {
+    "title": "Data Cleaning Tips for Students",
+    "content": "Handling missing values, outliers, and inconsistent datasets is crucial for reliable results.",
+    "date": "2026-01-06"
+  },
+  {
+    "title": "Using R and Python for Analytics",
+    "content": "Discover practical examples of R and Python for statistical computing and plotting.",
+    "date": "2026-01-07"
+  },
+  {
+    "title": "Interpreting Research Findings",
+    "content": "Understanding p-values, confidence intervals, and correlation in published studies.",
+    "date": "2026-01-08"
+  },
+  {
+    "title": "Forecasting Under-Five Mortality in Malawi",
+    "content": "I am currently working on projects to forecast under-five mortality rate in Malawi using machine learning models and classic time series models, highlighting implications for SDG 3.2.",
+    "date": "2026-01-09"
+  }
+]
