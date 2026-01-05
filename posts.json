@@ -1,27 +1,22 @@
 [
   {
-    "title": "Introduction to Statistical Modeling",
-    "content": "Learn the basics of regression, hypothesis testing, and data visualization for real-world analysis.",
-    "date": "2026-01-05"
+    "title": "Publication: Modeling Contraceptive Use Among University Students",
+    "content": "In 2025, I published a study on contraceptive use among university students using binary logistic regression, focusing on Mzuzu University. View my publication on ResearchGate: <a href='https://www.researchgate.net/publication/398869284_MODELING_CONTRACEPTIVE_USE_AMONG_UNIVERSITY_STUDENTS_USING_BINARY_LOGISTIC_REGRESSION_A_CASE_OF_MZUZU_UNIVERSITY?_tp=eyJjb250ZXh0Ijp7InBhZ2UiOiJtZXNzYWdlcyIsInByZXZpb3VzUGFnZSI6ImhvbWUifX0' target='_blank'>ResearchGate</a>",
+    "date": "2025-06-15"
   },
   {
-    "title": "Data Cleaning Tips for Students",
-    "content": "Handling missing values, outliers, and inconsistent datasets is crucial for reliable results.",
-    "date": "2026-01-06"
+    "title": "International Youth Mathematics Challenge",
+    "content": "I participated in the International Youth Mathematics Challenge and earned a certificate for my performance.",
+    "date": "2025-08-10"
   },
   {
-    "title": "Using R and Python for Analytics",
-    "content": "Discover practical examples of R and Python for statistical computing and plotting.",
-    "date": "2026-01-07"
-  },
-  {
-    "title": "Interpreting Research Findings",
-    "content": "Understanding p-values, confidence intervals, and correlation in published studies.",
-    "date": "2026-01-08"
+    "title": "Monitoring and Evaluation Dashboard",
+    "content": "I developed a Monitoring and Evaluation dashboard using Excel to track project progress and key performance indicators effectively.",
+    "date": "2025-10-05"
   },
   {
     "title": "Forecasting Under-Five Mortality in Malawi",
     "content": "I am currently working on projects to forecast under-five mortality rate in Malawi using machine learning models and classic time series models, highlighting implications for SDG 3.2.",
-    "date": "2026-01-09"
+    "date": "2026-01-05"
   }
 ]
