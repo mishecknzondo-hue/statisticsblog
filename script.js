@@ -11,24 +11,30 @@ const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll
 
 faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Contact form submission using Formspree
-const form = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
-if(form){
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-    const action = form.action;
-    try{
-      const response = await fetch(action, { method: 'POST', body: data, headers: { 'Accept':'application/json' } });
-      if(response.ok){
-        formMessage.textContent = "Message sent successfully!";
-        form.reset();
-      } else {
-        formMessage.textContent = "Failed to send message. Try again.";
-      }
-    }catch(error){
-      formMessage.textContent = "Error occurred. Try again.";
-    }
-  });
-}
+// Load blog posts dynamically from posts.json
+fetch('posts.json')
+  .then(response => response.json())
+  .then(posts => {
+    const postsContainer = document.getElementById('posts');
+    postsContainer.innerHTML = '';
+
+    posts.forEach(post => {
+      const thumb = post.thumbnail ? post.thumbnail : 'MISHECK.jpg';
+      const postHTML = `
+        <div class="post-card fade-in">
+          <img src="${thumb}" alt="${post.title}">
+          <div class="post-content">
+            <h3>${post.title}</h3>
+            <p>${post.content}</p>
+            <p class="date">Date: ${post.date}</p>
+          </div>
+        </div>
+      `;
+      postsContainer.insertAdjacentHTML('beforeend', postHTML);
+    });
+
+    // Reapply fade-in animation to dynamically added posts
+    const newFaders = document.querySelectorAll('.post-card');
+    newFaders.forEach(fader => appearOnScroll.observe(fader));
+  })
+  .catch(error => console.error('Error loading posts:', error));
