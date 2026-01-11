@@ -1,36 +1,34 @@
-// Dynamic blog posts loader
-const postsContainer = document.getElementById('posts');
-
-// Fetch posts from posts.json
-fetch('posts.json')
-  .then(response => response.json())
-  .then(posts => {
-    // Sort posts by date descending (latest first)
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    // Display all posts
-    posts.forEach(post => {
-      const postDiv = document.createElement('div');
-      postDiv.className = 'post';
-      postDiv.innerHTML = `
-        <h3>${post.title}</h3>
-        ${post.date ? `<small>${new Date(post.date).toLocaleDateString()}</small>` : ''}
-        <p>${post.content}</p>
-      `;
-      postsContainer.appendChild(postDiv);
-    });
-  })
-  .catch(error => {
-    console.error('Error loading posts:', error);
-    postsContainer.innerHTML = "<p>Unable to load posts at the moment.</p>";
+// Scroll animation for fade-in sections
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('visible');
+    appearOnScroll.unobserve(entry.target);
   });
+}, appearOptions);
 
-// Simple contact form feedback
-const contactForm = document.getElementById('contactForm');
+faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Contact form submission using Formspree
+const form = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
-
-contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  formMessage.textContent = "Thank you! Your message has been sent.";
-  contactForm.reset();
-});
+if(form){
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = form.action;
+    try{
+      const response = await fetch(action, { method: 'POST', body: data, headers: { 'Accept':'application/json' } });
+      if(response.ok){
+        formMessage.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        formMessage.textContent = "Failed to send message. Try again.";
+      }
+    }catch(error){
+      formMessage.textContent = "Error occurred. Try again.";
+    }
+  });
+}
